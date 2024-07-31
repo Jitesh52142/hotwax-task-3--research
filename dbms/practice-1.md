@@ -8,7 +8,7 @@ Design a database to manage customer profiles, contact details, addresses, and u
    **CREATE DATABASE ecommerce;**
    use ecommerce;
    
-** 1.-- Create the Customer table..**
+**1.-- Create the Customer table..**
  
 CREATE TABLE Customer (
     CustomerID INT PRIMARY KEY AUTO_INCREMENT,
