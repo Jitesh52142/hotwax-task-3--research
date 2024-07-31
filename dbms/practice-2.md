@@ -32,6 +32,8 @@ Mark Tailor is a new customer on your e-commerce platform. You need to create hi
    -- Add a shipping phone number
    INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
    VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Phone', '098-765-4321', 'Shipping');
+
+
 **4. Add Address Information**
    -- Add a shipping address
    INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
