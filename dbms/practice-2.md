@@ -23,50 +23,50 @@ Mark Tailor is a new customer on your e-commerce platform. You need to create hi
 
 
 4. **Add Contact Information**
-      -- Add an email address
-   INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Email', 'mark.tailor@example.com', 'General');
-   -- Add a billing phone number
-   INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Phone', '123-456-7890', 'Billing');
-   -- Add a shipping phone number
-   INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Phone', '098-765-4321', 'Shipping');
+         -- Add an email address
+      INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Email', 'mark.tailor@example.com', 'General');
+      -- Add a billing phone number
+      INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Phone', '123-456-7890', 'Billing');
+      -- Add a shipping phone number
+      INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Phone', '098-765-4321', 'Shipping');
 
 
 **4. Add Address Information**
-   -- Add a shipping address
-   INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '123 Shipping St', 'Shipping City', 'SC', '12345', 'USA', 'Shipping');
-   -- Add a billing address
-   INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '123 Billing St', 'Billing City', 'BC', '67890', 'USA', 'Billing');
-   -- Make billing and shipping addresses the same
-   UPDATE Address
-   SET StreetAddress = '123 Billing St', City = 'Billing City', StateProvince = 'BC', PostalCode = '67890', Country = 'USA'
-   WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Shipping';
-   -- Change the purpose of the billing address to General correspondence
-   UPDATE Address
-   SET Purpose = 'General correspondence'
-   WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Billing';
-
+      -- Add a shipping address
+      INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '123 Shipping St', 'Shipping City', 'SC', '12345', 'USA', 'Shipping');
+      -- Add a billing address
+      INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '123 Billing St', 'Billing City', 'BC', '67890', 'USA', 'Billing');
+      -- Make billing and shipping addresses the same
+      UPDATE Address
+      SET StreetAddress = '123 Billing St', City = 'Billing City', StateProvince = 'BC', PostalCode = '67890', Country = 'USA'
+      WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Shipping';
+      -- Change the purpose of the billing address to General correspondence
+      UPDATE Address
+      SET Purpose = 'General correspondence'
+      WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Billing';
+   
 
   **5..Modify Contact Information**
-   -- Delete the current email address and add a new one
-   DELETE FROM ContactInfo
-   WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND ContactType = 'Email';
-   INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Email', 'new.mark.tailor@example.com', 'General');
-   -- Delete the current billing address and add a new one
-   DELETE FROM Address
-   WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Billing';
-   INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '456 New Billing St', 'New Billing City', 'NBC', '54321', 'USA', 'Billing');
-   -- Delete the current shipping address and add a new one
-   DELETE FROM Address
-   WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Shipping';
-   INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
-   VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '456 New Shipping St', 'New Shipping City', 'NSC', '98765', 'USA', 'Shipping');
+      -- Delete the current email address and add a new one
+      DELETE FROM ContactInfo
+      WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND ContactType = 'Email';
+      INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Email', 'new.mark.tailor@example.com', 'General');
+      -- Delete the current billing address and add a new one
+      DELETE FROM Address
+      WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Billing';
+      INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '456 New Billing St', 'New Billing City', 'NBC', '54321', 'USA', 'Billing');
+      -- Delete the current shipping address and add a new one
+      DELETE FROM Address
+      WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Shipping';
+      INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '456 New Shipping St', 'New Shipping City', 'NSC', '98765', 'USA', 'Shipping');
 
 
 ## Activity - 2: Advanced Customer Management for John Hays
