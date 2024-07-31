@@ -52,8 +52,7 @@ Mark Tailor is a new customer on your e-commerce platform. You need to create hi
 
 
   **5..Modify Contact Information**
-   
-      -- Delete the current email address and add a new one
+   -- Delete the current email address and add a new one
    DELETE FROM ContactInfo
    WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND ContactType = 'Email';
    INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
