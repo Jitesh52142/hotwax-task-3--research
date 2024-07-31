@@ -8,16 +8,19 @@ You are tasked with managing customer profiles for an e-commerce platform. Your 
 ### Scenario
 Mark Tailor is a new customer on your e-commerce platform. You need to create his profile and update it with various details.
 
+
 ### Tasks
 1. **Create Customer Profile**
    
    INSERT INTO Customer (FirstName, MiddleName, LastName, Roles)
    VALUES ('Mark', '', 'Tailor', 'Customer');
+   
 
 3. **Update Customer Name**
     UPDATE Customer
     SET MiddleName = 'K'
     WHERE FirstName = 'Mark' AND LastName = 'Tailor';
+
 
 4. **Add Contact Information**
       -- Add an email address
@@ -29,9 +32,7 @@ Mark Tailor is a new customer on your e-commerce platform. You need to create hi
    -- Add a shipping phone number
    INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
    VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), 'Phone', '098-765-4321', 'Shipping');
-
 **4. Add Address Information**
-
    -- Add a shipping address
    INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
    VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor'), '123 Shipping St', 'Shipping City', 'SC', '12345', 'USA', 'Shipping');
@@ -48,7 +49,7 @@ Mark Tailor is a new customer on your e-commerce platform. You need to create hi
    WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Billing';
 
 
-5. **Modify Contact Information**
+   5**Modify Contact Information**
    
       -- Delete the current email address and add a new one
    DELETE FROM ContactInfo
