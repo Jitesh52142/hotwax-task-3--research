@@ -72,6 +72,19 @@ CREATE TABLE UserLoginSecurityGroup (
     FOREIGN KEY (SecurityGroupID) REFERENCES SecurityGroup(SecurityGroupID)
 );
 
+**7.-- Create the Payment Information table**
+
+CREATE TABLE PaymentInformation (
+    PaymentID INT PRIMARY KEY AUTO_INCREMENT,
+    CustomerID INT,
+    PaymentType VARCHAR(20),
+    CardNumber VARCHAR(20),
+    ExpirationDate DATE,
+    BillingAddressID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    FOREIGN KEY (BillingAddressID) REFERENCES Address(AddressID)
+);
+
 **ER Diagram**
     -https://github.com/Jitesh52142/hotwax-task-3--research/blob/master/dbms/ER_diagram%20of%20hotwax_ecommerce....mwb
 
