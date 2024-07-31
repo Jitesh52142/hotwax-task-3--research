@@ -86,6 +86,6 @@ CREATE TABLE PaymentInformation (
 );
 
  **ER Diagram**
-    - Create an Entity-Relationship (ER) diagram to represent the tables and relationships.
+    -https://github.com/Jitesh52142/hotwax-task-3--research/blob/master/dbms/ER_diagram%20of%20hotwax_ecommerce....mwb
 
 
