@@ -116,8 +116,7 @@ John Hays is an existing customer who requires more advanced management, includi
 
 
 6. **Modify Contact Information**
-      
-       -- Delete the current email address and add a new one
+      -- Delete the current email address and add a new one
       DELETE FROM ContactInfo
       WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'John' AND LastName = 'Hays') AND ContactType = 'Email';
       INSERT INTO ContactInfo (CustomerID, ContactType, ContactValue, Purpose)
@@ -126,7 +125,7 @@ John Hays is an existing customer who requires more advanced management, includi
       DELETE FROM Address
       WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'John' AND LastName = 'Hays') AND Purpose = 'Billing';
       INSERT INTO Address (CustomerID, StreetAddress, City, StateProvince, PostalCode, Country, Purpose)
-      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'John' AND LastName = 'Hays'), '101 New Billing St', 'New Billing City', 'NBC', '54321', 'USA', 'Billing');
+      VALUES ((SELECT CustomerID FROM Customer WHERE FirstName = 'John' AND LastName = 'Hays'), '101 New Billing St', 'New Billing City', 'NBC', '54321', 'USA',        'Billing');
       -- Delete the current shipping address and add a new one
       DELETE FROM Address
       WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'John' AND LastName = 'Hays') AND Purpose = 'Shipping';
