@@ -2,13 +2,13 @@
 
 ## Objective
 Design a database to manage customer profiles, contact details, addresses, and user logins for an e-commerce platform.
-Solution -
+#Solution -
 
  create command--
    CREATE DATABASE ecommerce;
    use ecommerce;
    
- 1.-- Create the Customer table..
+ #1.-- Create the Customer table..
  
 CREATE TABLE Customer (
     CustomerID INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE Customer (
     Roles VARCHAR(100)
 );
   
-2.-- Create the Contact Information table..
+#2.-- Create the Contact Information table..
 
 CREATE TABLE ContactInfo (
     ContactID INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,7 +30,7 @@ CREATE TABLE ContactInfo (
 );
 
 
-3.-- Create the Address table...
+#3.-- Create the Address table...
 
 CREATE TABLE Address (
     AddressID INT PRIMARY KEY AUTO_INCREMENT,
@@ -45,7 +45,7 @@ CREATE TABLE Address (
 );
 
 
-4.-- Create the User Login table..
+#4.-- Create the User Login table..
 
 CREATE TABLE UserLogin (
     LoginID INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,14 +55,14 @@ CREATE TABLE UserLogin (
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 
-5.-- Create the Security Group table..
+#5.-- Create the Security Group table..
 
 CREATE TABLE SecurityGroup (
     SecurityGroupID INT PRIMARY KEY AUTO_INCREMENT,
     GroupName VARCHAR(50)
 );
 
-6.-- Create the User Login Security Group table..
+#6.-- Create the User Login Security Group table..
 
 CREATE TABLE UserLoginSecurityGroup (
     LoginID INT,
@@ -72,20 +72,7 @@ CREATE TABLE UserLoginSecurityGroup (
     FOREIGN KEY (SecurityGroupID) REFERENCES SecurityGroup(SecurityGroupID)
 );
 
-7.-- Create the Payment Information table..
-
-CREATE TABLE PaymentInformation (
-    PaymentID INT PRIMARY KEY AUTO_INCREMENT,
-    CustomerID INT,
-    PaymentType VARCHAR(20),
-    CardNumber VARCHAR(20),
-    ExpirationDate DATE,
-    BillingAddressID INT,
-    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
-    FOREIGN KEY (BillingAddressID) REFERENCES Address(AddressID)
-);
-
- **ER Diagram**
+##**ER Diagram**
     -https://github.com/Jitesh52142/hotwax-task-3--research/blob/master/dbms/ER_diagram%20of%20hotwax_ecommerce....mwb
 
 
