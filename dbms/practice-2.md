@@ -49,7 +49,7 @@ Mark Tailor is a new customer on your e-commerce platform. You need to create hi
    WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE FirstName = 'Mark' AND LastName = 'Tailor') AND Purpose = 'Billing';
 
 
-   5**Modify Contact Information**
+  **5..Modify Contact Information**
    
       -- Delete the current email address and add a new one
    DELETE FROM ContactInfo
